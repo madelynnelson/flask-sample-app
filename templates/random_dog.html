@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <h1>Random Dog</h1>
+
+     <hr/>
+
+    <!-- Display Info for Single, Randomly-Generated Dog -->
+
+    <img height=300 src="{{ url_for('static', filename='/media/' + dog.photo_name) }}" alt="Image of dog named {{ dog.name }}">
+    <h3>{{  dog.name }}</h3>
+    <p>Breed: {{ dog.breed }}</p>
+    <p>Age: {{ dog.age }}</p>
+
+{% endblock %}

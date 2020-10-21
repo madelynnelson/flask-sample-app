@@ -1,0 +1,38 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <h1>All Dogs</h1>
+
+    <hr/>
+
+    <!-- Display Dogs Info -->
+    {% for dog in dogs %}
+        <img height=300 src="{{ url_for('static', filename='/media/' + dog.photo_name) }}"
+             alt="Image of dog named {{ dog.name }}">
+        <h3>{{ dog.name }}</h3>
+        <p>Breed: {{ dog.breed }}</p>
+        <p>Age: {{ dog.age }}</p>
+        <hr/>
+    {% endfor %}
+
+    <!-- Form to Create a New Dog -->
+    <h2>Add a Dog</h2>
+
+    <form action="{{ url_for('create_dog') }}" method="POST">
+        <div class="form-group">
+            <label for="dog_name">Name:</label>
+            <input type="text" class="form-control" name="dog_name">
+        </div>
+        <div class="form-group">
+            <label for="dog_breed">Breed:</label>
+            <input type="text" class="form-control" name="dog_breed">
+        </div>
+        <div class="form-group">
+            <label for="dog_age">Age:</label>
+            <input type="number" class="form-control" name="dog_age">
+        </div>
+        <input type="submit" class="btn btn-default">
+    </form>
+
+{% endblock %}
