@@ -79,7 +79,7 @@ def create_dog():
 
     dogs.append(new_dog)
 
-    return redirect(all_dogs)
+    return redirect('/dogs')
 
 
 if __name__ == "__main__":
